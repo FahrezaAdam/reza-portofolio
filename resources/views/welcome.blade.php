@@ -399,7 +399,7 @@ html.dark {
                     Full Stack Developer.
                 </h1>
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
-                    Information Technology student at Universitas Jember with a 3.96 GPA. Passionate about building robust web and mobile applications with modern tech stacks.
+                    Information Technology student at Universitas Jember. Passionate about building robust web and mobile applications with modern tech stacks.
                 </p>
 <div class="pt-4 flex flex-wrap gap-4">
 <a class="bg-primary hover:bg-primary-container dark:bg-primary-container dark:hover:brightness-110 text-on-primary dark:text-on-primary-container font-label-md text-label-md px-6 py-3 rounded-lg transition-all hover:scale-105 flex items-center gap-2 dark:glow-hover" href="#projects">
