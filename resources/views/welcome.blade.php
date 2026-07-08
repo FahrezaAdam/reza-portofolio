@@ -611,10 +611,7 @@ html.dark {
                 </p>
 </div>
 <div class="flex flex-col md:flex-row gap-6 items-center">
-<a class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors" href="tel:+6281231916297">
-<span class="material-symbols-outlined text-[20px]" data-icon="call">call</span>
-<span class="font-label-md text-sm">+62 81231916297</span>
-</a>
+
 <a class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors" href="mailto:fahrezaadam1784@gmail.com">
 <span class="material-symbols-outlined text-[20px]" data-icon="mail">mail</span>
 <span class="font-label-md text-sm">Email</span>
