@@ -440,7 +440,7 @@ html.dark {
 <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
 <div>
 <h3 class="font-headline-md text-headline-md text-on-surface">Universitas Jember</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Bachelor of Information Technology</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Undergraduate Student of Information Technology</p>
 </div>
 <div class="bg-primary/10 text-primary font-label-md text-label-md px-4 py-2 rounded-lg border border-primary/20 flex items-center gap-2">
 <span class="material-symbols-outlined text-[18px]" data-icon="school">school</span>
