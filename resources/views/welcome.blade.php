@@ -1,7 +1,7 @@
 <!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>Fahreza Adam Nuardiansyah | Full Stack Developer</title>
+<title>Fahreza Adam Nuardiansyah | Portfolio</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230f2a90'/><text x='50%' y='54%' font-family='sans-serif' font-size='45' font-weight='bold' fill='%23ffffff' text-anchor='middle' dominant-baseline='middle'>FA</text></svg>">
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;family=Inter:wght@400;500&amp;family=Geist:wght@400;500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
@@ -395,8 +395,7 @@ html.dark {
 <span class="font-label-md text-label-md text-on-surface-variant">Available for Opportunities</span>
 </div>
 <h1 class="font-display text-display-mobile md:text-display text-on-background">
-                    Hi, I'm <span class="text-primary">Fahreza Adam</span><br>
-                    Full Stack Developer.
+                    Hi, I'm <span class="text-primary">Fahreza Adam Nuardiansyah</span><br>
                 </h1>
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
                     Information Technology student at Universitas Jember. Passionate about building robust web and mobile applications with modern tech stacks.
