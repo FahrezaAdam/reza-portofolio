@@ -16,6 +16,14 @@
             "dest": "/public/$1/$2"
         },
         {
+            "src": "/(.*\\.pdf)",
+            "dest": "/public/$1"
+        },
+        {
+            "src": "/(.*\\.ico)",
+            "dest": "/public/$1"
+        },
+        {
             "src": "/(.*)",
             "dest": "/api/index.php"
         }
