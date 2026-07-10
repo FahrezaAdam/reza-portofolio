@@ -374,7 +374,7 @@ html.dark {
 <button id="theme-toggle" class="text-on-surface-variant hover:text-primary transition-colors py-1 ml-2 flex items-center" title="Toggle Theme">
     <span id="theme-toggle-dark-icon" class="hidden material-symbols-outlined text-[20px]">dark_mode</span><span id="theme-toggle-light-icon" class="hidden material-symbols-outlined text-[20px]">light_mode</span>
 </button>
-<a class="bg-primary hover:bg-primary-container dark:bg-primary-container dark:hover:brightness-110 text-on-primary dark:text-on-primary-container font-label-md px-4 py-2 rounded-lg transition-transform hover:scale-105 active:scale-95 ml-4 dark:glow-hover inline-flex items-center gap-2" href="{{ url('/download-cv') }}"><span class="material-symbols-outlined text-[18px]">download</span> Download CV</a>
+<a class="bg-primary hover:bg-primary-container dark:bg-primary-container dark:hover:brightness-110 text-on-primary dark:text-on-primary-container font-label-md px-4 py-2 rounded-lg transition-transform hover:scale-105 active:scale-95 ml-4 dark:glow-hover inline-flex items-center gap-2" href="{{ asset('CV_Fahreza_Adam_Nuardiansyah.pdf') }}" download><span class="material-symbols-outlined text-[18px]">download</span> Download CV</a>
 </div>
 <div class="flex items-center md:hidden">
     <button id="theme-toggle-mobile" class="text-on-surface hover:text-primary p-2 flex items-center" title="Toggle Theme">
