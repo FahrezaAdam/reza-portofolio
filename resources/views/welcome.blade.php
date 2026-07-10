@@ -591,7 +591,7 @@ html.dark {
 </div>
 <h3 class="font-display text-headline-md text-[20px] text-on-surface mb-3">SiPakan</h3>
 <p class="font-body-md text-on-surface-variant max-w-3xl mb-6">
-                            Optimalisasi Sistem Distribusi Pakan dan Monitoring Kesehatan Ternak Ayam Berbasis Digital. A mobile application designed to streamline feed distribution and digitally monitor the health of poultry livestock.
+                            Optimalisasi Sistem Distribusi Pakan dan Monitoring Kesehatan Ternak Ayam Berbasis Digital. Developed a comprehensive mobile dashboard to streamline automated feed distribution and provide real-time digital monitoring for poultry livestock health, including temperature and humidity tracking.
                         </p>
 </div>
 </div>
