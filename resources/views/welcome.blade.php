@@ -564,11 +564,11 @@ html.dark {
 </div>
 </div>
 <!-- Project 3 (Berbagi - Full Width) -->
-<div class="lg:col-span-8 bg-surface rounded-xl border border-outline-variant/30 overflow-hidden card-hover ambient-shadow flex flex-col md:flex-row" data-aos="fade-up" data-aos-delay="300">
-<div class="md:w-1/2 h-64 md:h-auto bg-surface-container-low relative">
-<img alt="Berbagi Platform UI" class="w-full h-full object-cover" src="{{ asset('images/berbagi.png') }}">
+<div class="lg:col-span-8 bg-surface rounded-xl border border-outline-variant/30 overflow-hidden card-hover ambient-shadow flex flex-col" data-aos="fade-up" data-aos-delay="300">
+<div class="h-64 md:h-72 bg-surface-container-low relative">
+<img alt="Berbagi Platform UI" class="w-full h-full object-cover object-top" src="{{ asset('images/berbagi.png') }}">
 </div>
-<div class="p-6 md:w-1/2 flex flex-col justify-center">
+<div class="p-6 flex-1 flex flex-col justify-center">
 <div class="flex items-center gap-2 mb-3">
 <span class="bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-md px-2 py-0.5 rounded text-xs">Web</span>
 <span class="bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-md px-2 py-0.5 rounded text-xs">Laravel Blade</span>
@@ -582,8 +582,8 @@ html.dark {
 </div>
 <!-- Project 4 (SiPakan) -->
 <div class="lg:col-span-4 bg-surface rounded-xl border border-outline-variant/30 overflow-hidden card-hover ambient-shadow flex flex-col" data-aos="fade-up" data-aos-delay="400">
-<div class="h-64 bg-surface-container-low relative">
-<img alt="SiPakan Mobile App" class="w-full h-full object-cover object-top" src="{{ asset('images/sipakan.png') }}">
+<div class="h-64 md:h-72 bg-surface-container-low/50 relative p-6 flex items-center justify-center">
+<img alt="SiPakan Mobile App" class="w-full h-full object-contain drop-shadow-lg transition-transform hover:scale-105 duration-500" src="{{ asset('images/sipakan.png') }}">
 </div>
 <div class="p-6 flex-1 flex flex-col justify-center">
 <div class="flex items-center gap-2 mb-3">
