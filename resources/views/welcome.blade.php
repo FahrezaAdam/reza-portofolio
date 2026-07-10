@@ -482,13 +482,12 @@ html.dark {
 <div class="w-12 h-12 bg-primary-fixed rounded-lg flex items-center justify-center mb-4">
 <span class="material-symbols-outlined text-on-primary-fixed" data-icon="web">web</span>
 </div>
-<h3 class="font-headline-md text-[20px] font-bold text-on-surface mb-4">Frameworks</h3>
+<h3 class="font-headline-md text-[20px] font-bold text-on-surface mb-4">Frameworks &amp; Libraries</h3>
 <div class="flex flex-wrap gap-2">
 <span class="bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-md px-2.5 py-1 rounded">Flutter</span>
 <span class="bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-md px-2.5 py-1 rounded">Node.js</span>
 <span class="bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-md px-2.5 py-1 rounded">Express.js</span>
 <span class="bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-md px-2.5 py-1 rounded">Laravel</span>
-<span class="bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-md px-2.5 py-1 rounded">Firebase</span>
 <span class="bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-md px-2.5 py-1 rounded">React</span>
 <span class="bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-md px-2.5 py-1 rounded">Next.js</span>
 </div>
@@ -498,10 +497,11 @@ html.dark {
 <div class="w-12 h-12 bg-primary-fixed rounded-lg flex items-center justify-center mb-4">
 <span class="material-symbols-outlined text-on-primary-fixed" data-icon="database">database</span>
 </div>
-<h3 class="font-headline-md text-[20px] font-bold text-on-surface mb-4">Databases</h3>
+<h3 class="font-headline-md text-[20px] font-bold text-on-surface mb-4">Databases &amp; Cloud</h3>
 <div class="flex flex-wrap gap-2">
 <span class="bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-md px-2.5 py-1 rounded">MySQL</span>
 <span class="bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-md px-2.5 py-1 rounded">PostgreSQL</span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-md px-2.5 py-1 rounded">Firebase</span>
 <span class="bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-md px-2.5 py-1 rounded">Supabase</span>
 </div>
 </div>
