@@ -579,6 +579,22 @@ html.dark {
 
 </div>
 </div>
+<!-- Project 4 (SiPakan - Full Width) -->
+<div class="lg:col-span-12 bg-surface rounded-xl border border-outline-variant/30 overflow-hidden card-hover ambient-shadow flex flex-col md:flex-row" data-aos="fade-up" data-aos-delay="400">
+<div class="md:w-3/5 h-64 md:h-auto bg-surface-container-low relative">
+<img alt="SiPakan Mobile App" class="w-full h-full object-cover object-top" src="{{ asset('images/sipakan.png') }}">
+</div>
+<div class="p-6 md:w-2/5 flex flex-col justify-center">
+<div class="flex items-center gap-2 mb-3">
+<span class="bg-primary/10 text-primary font-label-md px-2 py-0.5 rounded text-xs">Mobile</span>
+<span class="bg-primary/10 text-primary font-label-md px-2 py-0.5 rounded text-xs">IoT</span>
+</div>
+<h3 class="font-display text-headline-md text-[20px] text-on-surface mb-3">SiPakan</h3>
+<p class="font-body-md text-on-surface-variant max-w-3xl mb-6">
+                            Optimalisasi Sistem Distribusi Pakan dan Monitoring Kesehatan Ternak Ayam Berbasis Digital. A mobile application designed to streamline feed distribution and digitally monitor the health of poultry livestock.
+                        </p>
+</div>
+</div>
 </section>
 <!-- Experience Section -->
 <section class="bg-surface-container-lowest border-y border-outline-variant/20 py-xl">
