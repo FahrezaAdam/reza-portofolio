@@ -489,6 +489,8 @@ html.dark {
 <span class="bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-md px-2.5 py-1 rounded">Express.js</span>
 <span class="bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-md px-2.5 py-1 rounded">Laravel</span>
 <span class="bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-md px-2.5 py-1 rounded">Firebase</span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-md px-2.5 py-1 rounded">React</span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-md px-2.5 py-1 rounded">Next.js</span>
 </div>
 </div>
 <!-- Databases -->
