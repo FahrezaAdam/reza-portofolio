@@ -2,10 +2,15 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>Fahreza Adam Nuardiansyah | Portfolio</title>
+<meta name="description" content="Portfolio of Fahreza Adam Nuardiansyah, Information Technology Student & Full Stack Developer at Universitas Jember.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.tailwindcss.com">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://unpkg.com">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230f2a90'/><text x='50%' y='54%' font-family='sans-serif' font-size='45' font-weight='bold' fill='%23ffffff' text-anchor='middle' dominant-baseline='middle'>FA</text></svg>">
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;family=Inter:wght@400;500&amp;family=Geist:wght@400;500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <script id="tailwind-config">
         tailwind.config = {
@@ -350,6 +355,10 @@ html.dark {
         .dark .blob-container {
             mix-blend-mode: screen;
         }
+        .content-visibility-auto {
+            content-visibility: auto;
+            contain-intrinsic-size: 1px 600px;
+        }
     </style>
 </head>
 <body class="bg-background text-on-background font-body-md antialiased selection:bg-primary-fixed selection:text-on-primary-fixed relative">
@@ -380,11 +389,27 @@ html.dark {
     <button id="theme-toggle-mobile" class="text-on-surface hover:text-primary p-2 flex items-center" title="Toggle Theme">
         <span id="theme-toggle-dark-icon-mobile" class="hidden material-symbols-outlined text-[20px]">dark_mode</span><span id="theme-toggle-light-icon-mobile" class="hidden material-symbols-outlined text-[20px]">light_mode</span>
     </button>
-    <button class="text-on-surface hover:text-primary p-2">
-        <span class="material-symbols-outlined" data-icon="menu">menu</span>
+    <button id="mobile-menu-toggle" class="text-on-surface hover:text-primary p-2 flex items-center justify-center focus:outline-none" title="Toggle Menu">
+        <span id="mobile-menu-icon" class="material-symbols-outlined text-[24px]">more_vert</span>
     </button>
 </div>
 </nav>
+
+<!-- Mobile Navigation Menu -->
+<div id="mobile-menu" class="hidden md:hidden bg-surface/95 dark:bg-inverse-surface/95 backdrop-blur-lg border-t border-outline-variant/20 px-gutter py-4 shadow-lg transition-all duration-300">
+    <div class="flex flex-col space-y-3">
+        <a class="nav-link-mobile text-on-surface hover:text-primary transition-colors py-2 px-3 rounded-lg hover:bg-surface-container-low dark:hover:bg-surface-container font-medium" href="#profile">Profile</a>
+        <a class="nav-link-mobile text-on-surface hover:text-primary transition-colors py-2 px-3 rounded-lg hover:bg-surface-container-low dark:hover:bg-surface-container font-medium" href="#education">Education</a>
+        <a class="nav-link-mobile text-on-surface hover:text-primary transition-colors py-2 px-3 rounded-lg hover:bg-surface-container-low dark:hover:bg-surface-container font-medium" href="#skills">Skills</a>
+        <a class="nav-link-mobile text-on-surface hover:text-primary transition-colors py-2 px-3 rounded-lg hover:bg-surface-container-low dark:hover:bg-surface-container font-medium" href="#projects">Projects</a>
+        <a class="nav-link-mobile text-on-surface hover:text-primary transition-colors py-2 px-3 rounded-lg hover:bg-surface-container-low dark:hover:bg-surface-container font-medium" href="#contact">Contact</a>
+        <div class="pt-2 border-t border-outline-variant/20">
+            <a class="bg-primary hover:bg-primary-container dark:bg-primary-container dark:hover:brightness-110 text-on-primary dark:text-on-primary-container font-label-md px-4 py-2.5 rounded-lg transition-transform active:scale-95 flex items-center justify-center gap-2 dark:glow-hover w-full" href="{{ asset('CV_Fahreza_Adam_Nuardiansyah.pdf') }}" download>
+                <span class="material-symbols-outlined text-[18px]">download</span> Download CV
+            </a>
+        </div>
+    </div>
+</div>
 </header>
 <main class="pt-24 pb-xl">
 <!-- Hero Section -->
@@ -412,11 +437,11 @@ html.dark {
 </div>
 <div class="flex-1 relative w-full aspect-square max-w-[400px]" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
 <div class="absolute inset-0 bg-primary/5 rounded-full blur-3xl"></div>
-<img alt="Fahreza Adam Workspace" class="relative z-10 w-full h-full object-cover rounded-2xl shadow-sm border border-outline-variant/30 ambient-shadow" src="{{ asset('images/profile.jpg') }}">
+<img alt="Fahreza Adam Workspace" class="relative z-10 w-full h-full object-cover rounded-2xl shadow-sm border border-outline-variant/30 ambient-shadow" src="{{ asset('images/profile.webp') }}" loading="eager" fetchpriority="high" decoding="async" width="400" height="400">
 </div>
 </section>
 <!-- Profile Section -->
-<section class="bg-surface-container-lowest border-y border-outline-variant/20 py-xl" id="profile">
+<section class="bg-surface-container-lowest border-y border-outline-variant/20 py-xl content-visibility-auto" id="profile">
 <div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-12 gap-8" data-aos="fade-up">
 <div class="md:col-span-4">
 <h2 class="font-display text-headline-lg text-on-surface flex items-center gap-3">
@@ -432,7 +457,7 @@ html.dark {
 </div>
 </section>
 <!-- Education Section -->
-<section class="max-w-container-max mx-auto px-gutter py-xl" id="education">
+<section class="max-w-container-max mx-auto px-gutter py-xl content-visibility-auto" id="education">
 <h2 class="font-display text-headline-lg text-on-surface mb-12 text-center" data-aos="fade-up">Education &amp; Academics</h2>
 <div class="bg-surface border border-outline-variant/30 rounded-xl p-8 max-w-3xl mx-auto card-hover ambient-shadow relative overflow-hidden" data-aos="zoom-in" data-aos-delay="100">
 <div class="absolute top-0 right-0 w-32 h-32 bg-tertiary-fixed-dim/20 rounded-bl-full -z-10"></div>
@@ -459,7 +484,7 @@ html.dark {
 </div>
 </section>
 <!-- Skills Section -->
-<section class="bg-surface-container-low py-xl" id="skills">
+<section class="bg-surface-container-low py-xl content-visibility-auto" id="skills">
 <div class="max-w-container-max mx-auto px-gutter relative z-10">
 <h2 class="font-display text-headline-lg text-on-surface mb-12 text-center" data-aos="fade-up">Tech Stack</h2>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -524,7 +549,7 @@ html.dark {
 </div>
 </section>
 <!-- Projects Section (Bento Grid Style) -->
-<section class="max-w-container-max mx-auto px-gutter py-xl" id="projects">
+<section class="max-w-container-max mx-auto px-gutter py-xl content-visibility-auto" id="projects">
 <div class="flex justify-between items-end mb-12" data-aos="fade-up">
 <div>
 <h2 class="font-display text-headline-lg text-on-surface mb-2">Featured Projects</h2>
@@ -535,7 +560,7 @@ html.dark {
 <!-- Project 1 (Large) -->
 <div class="lg:col-span-8 bg-surface rounded-xl border border-outline-variant/30 overflow-hidden card-hover ambient-shadow flex flex-col md:flex-row" data-aos="fade-up" data-aos-delay="100">
 <div class="md:w-1/2 h-64 md:h-auto bg-surface-container-low relative">
-<img alt="EarthCare App" class="w-full h-full object-cover" src="{{ asset('images/EarthCare.png') }}">
+<img alt="EarthCare App" class="w-full h-full object-cover" src="{{ asset('images/EarthCare.webp') }}" loading="lazy" decoding="async" width="800" height="450">
 </div>
 <div class="p-6 md:w-1/2 flex flex-col justify-center">
 <div class="flex items-center gap-2 mb-3">
@@ -552,7 +577,7 @@ html.dark {
 <!-- Project 2 (Small) -->
 <div class="lg:col-span-4 bg-surface rounded-xl border border-outline-variant/30 overflow-hidden card-hover ambient-shadow flex flex-col" data-aos="fade-up" data-aos-delay="200">
 <div class="h-48 bg-surface-container-low relative">
-<img alt="AquaSync Dashboard" class="w-full h-full object-cover" src="{{ asset('images/AquaSync.png') }}">
+<img alt="AquaSync Dashboard" class="w-full h-full object-cover" src="{{ asset('images/AquaSync.webp') }}" loading="lazy" decoding="async" width="400" height="225">
 </div>
 <div class="p-6 flex-1 flex flex-col">
 <div class="flex items-center gap-2 mb-3">
@@ -568,7 +593,7 @@ html.dark {
 <!-- Project 3 (Berbagi - Full Width) -->
 <div class="lg:col-span-8 bg-surface rounded-xl border border-outline-variant/30 overflow-hidden card-hover ambient-shadow flex flex-col" data-aos="fade-up" data-aos-delay="300">
 <div class="h-64 md:h-72 bg-surface-container-low relative">
-<img alt="Berbagi Platform UI" class="w-full h-full object-cover object-top" src="{{ asset('images/berbagi.png') }}">
+<img alt="Berbagi Platform UI" class="w-full h-full object-cover object-top" src="{{ asset('images/berbagi.webp') }}" loading="lazy" decoding="async" width="800" height="450">
 </div>
 <div class="p-6 flex-1 flex flex-col justify-center">
 <div class="flex items-center gap-2 mb-3">
@@ -585,7 +610,7 @@ html.dark {
 <!-- Project 4 (SiPakan) -->
 <div class="lg:col-span-4 bg-surface rounded-xl border border-outline-variant/30 overflow-hidden card-hover ambient-shadow flex flex-col" data-aos="fade-up" data-aos-delay="400">
 <div class="h-64 md:h-72 bg-surface-container-low/50 relative p-6 flex items-center justify-center">
-<img alt="SiPakan Mobile App" class="w-full h-full object-contain drop-shadow-lg transition-transform hover:scale-105 duration-500" src="{{ asset('images/sipakan.png') }}">
+<img alt="SiPakan Mobile App" class="w-full h-full object-contain drop-shadow-lg transition-transform hover:scale-105 duration-500" src="{{ asset('images/sipakan.webp') }}" loading="lazy" decoding="async" width="400" height="450">
 </div>
 <div class="p-6 flex-1 flex flex-col justify-center">
 <div class="flex items-center gap-2 mb-3">
@@ -655,27 +680,27 @@ html.dark {
 </footer>
 </div> <!-- End Content Wrapper -->
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
 <script>
-        // Initialize Animate On Scroll
-        AOS.init({
-            once: true, // whether animation should happen only once - while scrolling down
-            offset: 100, // offset (in px) from the original trigger point
-            duration: 800, // values from 0 to 3000, with step 50ms
-            easing: 'ease-out-cubic', // default easing for AOS animations
-        });
-
-        // Simple active state navigation logic for scroll
         document.addEventListener('DOMContentLoaded', () => {
+            // Initialize Animate On Scroll
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    once: true,
+                    offset: 100,
+                    duration: 800,
+                    easing: 'ease-out-cubic',
+                });
+            }
+
+            // Simple active state navigation logic for scroll
             const sections = document.querySelectorAll('section[id]');
-            // Only select links that point to an actual section ID, not just "#"
             const navLinks = document.querySelectorAll('header nav a[href^="#"]:not([href="#"])');
 
             window.addEventListener('scroll', () => {
                 let current = '';
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
                     if (pageYOffset >= (sectionTop - 200)) {
                         current = section.getAttribute('id');
                     }
@@ -689,7 +714,7 @@ html.dark {
                         link.classList.remove('text-on-surface-variant');
                     }
                 });
-            });
+            }, { passive: true });
         });
     
         // Dark Mode Logic
@@ -698,7 +723,6 @@ html.dark {
         const themeToggleDarkIconMobile = document.getElementById('theme-toggle-dark-icon-mobile');
         const themeToggleLightIconMobile = document.getElementById('theme-toggle-light-icon-mobile');
 
-        // Check theme
         if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             if(themeToggleLightIcon) themeToggleLightIcon.classList.remove('hidden');
             if(themeToggleLightIconMobile) themeToggleLightIconMobile.classList.remove('hidden');
@@ -742,20 +766,52 @@ html.dark {
             themeToggleBtnMobile.addEventListener('click', toggleTheme);
         }
 
+        // Mobile Menu Toggle Logic
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuIcon = document.getElementById('mobile-menu-icon');
+
+        if (mobileMenuToggle && mobileMenu) {
+            mobileMenuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                if (mobileMenuIcon) {
+                    if (mobileMenu.classList.contains('hidden')) {
+                        mobileMenuIcon.textContent = 'more_vert';
+                    } else {
+                        mobileMenuIcon.textContent = 'close';
+                    }
+                }
+            });
+
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    if (mobileMenuIcon) {
+                        mobileMenuIcon.textContent = 'more_vert';
+                    }
+                });
+            });
+        }
 </script>
 
 <!-- tsParticles Script -->
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js" defer></script>
 <script>
-    tsParticles.load("tsparticles", {
-        fpsLimit: 60,
-        particles: {
-            number: { value: 25, density: { enable: true, value_area: 800 } },
-            color: { value: ["#445e91", "#006493", "#456179"] }, // Colors from theme
-            links: { enable: true, color: "#8f909e", distance: 250, opacity: 0.2, width: 1 },
-            move: { enable: true, speed: 0.5, direction: "none", random: true, straight: false, outModes: "out" },
-            size: { value: { min: 1, max: 3 } },
-            opacity: { value: 0.6 }
+    document.addEventListener('DOMContentLoaded', () => {
+        if (typeof tsParticles !== 'undefined') {
+            const isMobile = window.innerWidth < 768;
+            tsParticles.load("tsparticles", {
+                fpsLimit: 60,
+                particles: {
+                    number: { value: isMobile ? 12 : 25, density: { enable: true, value_area: 800 } },
+                    color: { value: ["#445e91", "#006493", "#456179"] },
+                    links: { enable: true, color: "#8f909e", distance: 250, opacity: 0.2, width: 1 },
+                    move: { enable: true, speed: 0.5, direction: "none", random: true, straight: false, outModes: "out" },
+                    size: { value: { min: 1, max: 3 } },
+                    opacity: { value: 0.6 }
+                }
+            });
         }
     });
 </script>

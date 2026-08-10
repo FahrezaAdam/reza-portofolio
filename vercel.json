@@ -30,18 +30,31 @@
     ],
     "headers": [
         {
+            "source": "/(images|css|js)/(.*)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=31536000, immutable"
+                }
+            ]
+        },
+        {
             "source": "/(.*\\.pdf)",
             "headers": [
                 {
                     "key": "Content-Disposition",
                     "value": "attachment; filename=\"CV_Fahreza_Adam_Nuardiansyah.pdf\""
+                },
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=86400"
                 }
             ]
         }
     ],
     "env": {
         "APP_ENV": "production",
-        "APP_DEBUG": "true",
+        "APP_DEBUG": "false",
         "APP_KEY": "base64:oqO+uDA/XD+T9KyYVKdU5OjRVhDi4jf8IOgj4t86Nno=",
         "CACHE_STORE": "array",
         "SESSION_DRIVER": "cookie",

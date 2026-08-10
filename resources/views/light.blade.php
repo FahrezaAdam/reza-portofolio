@@ -218,11 +218,27 @@
     <a href="?theme=dark" class="text-on-surface hover:text-primary p-2 flex items-center">
         <span class="material-symbols-outlined text-[20px]">dark_mode</span>
     </a>
-    <button class="text-on-surface hover:text-primary p-2">
-        <span class="material-symbols-outlined" data-icon="menu">menu</span>
+    <button id="mobile-menu-toggle" class="text-on-surface hover:text-primary p-2 flex items-center justify-center focus:outline-none" title="Toggle Menu">
+        <span id="mobile-menu-icon" class="material-symbols-outlined text-[24px]">more_vert</span>
     </button>
 </div>
 </nav>
+
+<!-- Mobile Navigation Menu -->
+<div id="mobile-menu" class="hidden md:hidden bg-surface/95 dark:bg-inverse-surface/95 backdrop-blur-lg border-t border-outline-variant/20 px-gutter py-4 shadow-lg transition-all duration-300">
+    <div class="flex flex-col space-y-3">
+        <a class="nav-link-mobile text-on-surface hover:text-primary transition-colors py-2 px-3 rounded-lg hover:bg-surface-container-low font-medium" href="#profile">Profile</a>
+        <a class="nav-link-mobile text-on-surface hover:text-primary transition-colors py-2 px-3 rounded-lg hover:bg-surface-container-low font-medium" href="#education">Education</a>
+        <a class="nav-link-mobile text-on-surface hover:text-primary transition-colors py-2 px-3 rounded-lg hover:bg-surface-container-low font-medium" href="#skills">Skills</a>
+        <a class="nav-link-mobile text-on-surface hover:text-primary transition-colors py-2 px-3 rounded-lg hover:bg-surface-container-low font-medium" href="#projects">Projects</a>
+        <a class="nav-link-mobile text-on-surface hover:text-primary transition-colors py-2 px-3 rounded-lg hover:bg-surface-container-low font-medium" href="#contact">Contact</a>
+        <div class="pt-2 border-t border-outline-variant/20">
+            <a class="bg-primary hover:bg-primary-container text-on-primary font-label-md px-4 py-2.5 rounded-lg transition-transform active:scale-95 flex items-center justify-center gap-2 w-full" href="{{ asset('CV_Fahreza_Adam_Nuardiansyah.pdf') }}" download>
+                <span class="material-symbols-outlined text-[18px]">download</span> Download CV
+            </a>
+        </div>
+    </div>
+</div>
 </header>
 <main class="pt-24 pb-xl">
 <!-- Hero Section -->
@@ -497,6 +513,34 @@
                     }
                 });
             });
+
+            // Mobile Menu Toggle Logic
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuIcon = document.getElementById('mobile-menu-icon');
+
+            if (mobileMenuToggle && mobileMenu) {
+                mobileMenuToggle.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    if (mobileMenuIcon) {
+                        if (mobileMenu.classList.contains('hidden')) {
+                            mobileMenuIcon.textContent = 'more_vert';
+                        } else {
+                            mobileMenuIcon.textContent = 'close';
+                        }
+                    }
+                });
+
+                const mobileLinks = mobileMenu.querySelectorAll('a');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                        if (mobileMenuIcon) {
+                            mobileMenuIcon.textContent = 'more_vert';
+                        }
+                    });
+                });
+            }
         });
     </script>
 
