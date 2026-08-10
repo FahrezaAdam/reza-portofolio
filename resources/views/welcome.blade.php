@@ -642,7 +642,7 @@ html.dark {
 </div>
 <div class="relative pl-8 border-l-2 border-transparent">
 <div class="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-1 ring-4 ring-surface-container-lowest"></div>
-<h3 class="font-headline-md text-[20px] text-on-surface font-bold">Practicum Assistant - Software Engineering Laboratory</h3>
+<h3 class="font-headline-md text-[20px] text-on-surface font-bold">Teaching Assistant - Software Engineering Laboratory</h3>
 <p class="font-label-md text-primary mb-3">Universitas Jember</p>
 <p class="font-body-md text-on-surface-variant bg-surface p-4 rounded-lg border border-outline-variant/20">
                             Guided students during Software Engineering practicum sessions, explaining materials and resolving technical issues. Assisted in grading assignments, preparing teaching modules, and providing consultation on practicum tasks to ensure smooth execution.
