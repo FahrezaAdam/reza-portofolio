@@ -415,6 +415,7 @@ html.dark {
 <a class="text-on-surface-variant hover:text-primary transition-colors py-1" href="#education">Education</a>
 <a class="text-on-surface-variant hover:text-primary transition-colors py-1" href="#skills">Skills</a>
 <a class="text-on-surface-variant hover:text-primary transition-colors py-1" href="#projects">Projects</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors py-1" href="#experience">Experience</a>
 <a class="text-on-surface-variant hover:text-primary transition-colors py-1" href="#contact">Contact</a>
 <button id="theme-toggle" class="text-on-surface-variant hover:text-primary transition-colors py-1 ml-2 flex items-center" title="Toggle Theme">
     <span id="theme-toggle-dark-icon" class="hidden material-symbols-outlined text-[20px]">dark_mode</span><span id="theme-toggle-light-icon" class="hidden material-symbols-outlined text-[20px]">light_mode</span>
@@ -441,6 +442,7 @@ html.dark {
         <a class="nav-link-mobile text-on-surface hover:text-primary transition-colors py-2 px-3 rounded-lg hover:bg-surface-container-low dark:hover:bg-surface-container font-medium" href="#education">Education</a>
         <a class="nav-link-mobile text-on-surface hover:text-primary transition-colors py-2 px-3 rounded-lg hover:bg-surface-container-low dark:hover:bg-surface-container font-medium" href="#skills">Skills</a>
         <a class="nav-link-mobile text-on-surface hover:text-primary transition-colors py-2 px-3 rounded-lg hover:bg-surface-container-low dark:hover:bg-surface-container font-medium" href="#projects">Projects</a>
+        <a class="nav-link-mobile text-on-surface hover:text-primary transition-colors py-2 px-3 rounded-lg hover:bg-surface-container-low dark:hover:bg-surface-container font-medium" href="#experience">Experience</a>
         <a class="nav-link-mobile text-on-surface hover:text-primary transition-colors py-2 px-3 rounded-lg hover:bg-surface-container-low dark:hover:bg-surface-container font-medium" href="#contact">Contact</a>
     </div>
 </div>
@@ -530,6 +532,7 @@ html.dark {
 <h3 class="font-headline-md text-[20px] font-bold text-on-surface mb-4">Languages</h3>
 <div class="flex flex-wrap gap-2">
 <span class="bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-md px-2.5 py-1 rounded">JavaScript</span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-md px-2.5 py-1 rounded">TypeScript</span>
 <span class="bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-md px-2.5 py-1 rounded">Dart</span>
 <span class="bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-md px-2.5 py-1 rounded">C#</span>
 <span class="bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-md px-2.5 py-1 rounded">PHP</span>
@@ -562,6 +565,7 @@ html.dark {
 <span class="bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-md px-2.5 py-1 rounded">PostgreSQL</span>
 <span class="bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-md px-2.5 py-1 rounded">Firebase</span>
 <span class="bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-md px-2.5 py-1 rounded">Supabase</span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-md px-2.5 py-1 rounded">NeonDB</span>
 </div>
 </div>
 <!-- Tools -->
@@ -659,7 +663,7 @@ html.dark {
 </div>
 </section>
 <!-- Experience Section -->
-<section class="bg-surface-container-lowest border-y border-outline-variant/20 py-xl">
+<section class="bg-surface-container-lowest border-y border-outline-variant/20 py-xl" id="experience">
 <div class="max-w-container-max mx-auto px-gutter">
 <h2 class="font-display text-headline-lg text-on-surface mb-10 text-center flex justify-center items-center gap-3" data-aos="fade-up">
 <span class="material-symbols-outlined text-primary" data-icon="work">work</span>
