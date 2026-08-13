@@ -12,6 +12,22 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;family=Inter:wght@400;500&amp;family=Geist:wght@400;500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<!-- Inline theme script: MUST be before any rendering to prevent flash -->
+<script>
+  (function() {
+    // Apply dark class ONLY if user explicitly chose dark before.
+    // Default is always light mode (no system preference fallback).
+    if (localStorage.getItem('color-theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      // If no preference saved yet, set light as default
+      if (!localStorage.getItem('color-theme')) {
+        localStorage.setItem('color-theme', 'light');
+      }
+    }
+  })();
+</script>
 <script id="tailwind-config">
         tailwind.config = {
           darkMode: "class",
@@ -723,10 +739,11 @@ html.dark {
         const themeToggleDarkIconMobile = document.getElementById('theme-toggle-dark-icon-mobile');
         const themeToggleLightIconMobile = document.getElementById('theme-toggle-light-icon-mobile');
 
-        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        // Theme is already applied in <head> to prevent flash.
+        // Here we only sync the toggle button icons.
+        if (localStorage.getItem('color-theme') === 'dark') {
             if(themeToggleLightIcon) themeToggleLightIcon.classList.remove('hidden');
             if(themeToggleLightIconMobile) themeToggleLightIconMobile.classList.remove('hidden');
-            document.documentElement.classList.add('dark');
         } else {
             if(themeToggleDarkIcon) themeToggleDarkIcon.classList.remove('hidden');
             if(themeToggleDarkIconMobile) themeToggleDarkIconMobile.classList.remove('hidden');
