@@ -104,7 +104,7 @@
                       "sm": "12px",
                       "xs": "4px",
                       "lg": "48px",
-                      "container-max": "1200px"
+                      "container-max": "1440px"
               },
               "fontFamily": {
                       "display-mobile": [
@@ -134,9 +134,9 @@
               },
               "fontSize": {
                       "display-mobile": [
-                              "36px",
+                              "42px",
                               {
-                                      "lineHeight": "1.2",
+                                      "lineHeight": "1.15",
                                       "letterSpacing": "-0.02em",
                                       "fontWeight": "800"
                               }
@@ -156,10 +156,10 @@
                               }
                       ],
                       "display": [
-                              "48px",
+                              "60px",
                               {
-                                      "lineHeight": "1.1",
-                                      "letterSpacing": "-0.02em",
+                                      "lineHeight": "1.05",
+                                      "letterSpacing": "-0.025em",
                                       "fontWeight": "800"
                               }
                       ],
@@ -172,23 +172,23 @@
                               }
                       ],
                       "headline-md": [
-                              "24px",
+                              "28px",
                               {
                                       "lineHeight": "1.3",
                                       "fontWeight": "700"
                               }
                       ],
                       "headline-lg": [
-                              "32px",
+                              "36px",
                               {
-                                      "lineHeight": "1.2",
+                                      "lineHeight": "1.15",
                                       "fontWeight": "700"
                               }
                       ],
                       "body-lg": [
-                              "18px",
+                              "20px",
                               {
-                                      "lineHeight": "1.6",
+                                      "lineHeight": "1.65",
                                       "fontWeight": "400"
                               }
                       ]
@@ -388,13 +388,39 @@ html.dark {
             contain-intrinsic-size: 1px 600px;
         }
 
-        /* ===== Smooth Page Fade-in ===== */
+        /* ===== Smooth Page Fade-in + Directional Slide-in ===== */
+        /* Body stays invisible until load to prevent flash */
         body {
             opacity: 0;
         }
         body.page-ready {
             opacity: 1;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.4s ease;
+        }
+
+        /* Per-element directional animations */
+        .anim-ready {
+            opacity: 0;
+        }
+        /* From top (navbar) */
+        .anim-from-top    { opacity: 0; transform: translateY(-28px); }
+        /* From left (hero text) */
+        .anim-from-left   { opacity: 0; transform: translateX(-40px); }
+        /* From right (hero image) */
+        .anim-from-right  { opacity: 0; transform: translateX(40px); }
+
+        /* Triggered class — smooth cubic-bezier */
+        .anim-in {
+            opacity: 1 !important;
+            transform: translate(0, 0) !important;
+            transition:
+                opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* Content wrapper: just a container, no animation on it */
+        #content-wrapper {
+            opacity: 1;
         }
     </style>
 </head>
@@ -404,10 +430,10 @@ html.dark {
 <div id="tsparticles" class="fixed inset-0 w-full h-full z-0 pointer-events-none overflow-hidden"></div>
 
 <!-- Content Wrapper (z-10 ensures it stays above background animations) -->
-<div class="relative z-10">
+<div class="relative z-10" id="content-wrapper">
 
 <!-- TopNavBar -->
-<header class="bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-md shadow-sm fixed top-0 w-full z-50 transition-all duration-300 ease-in-out">
+<header id="hero-navbar" class="anim-from-top bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-md shadow-sm fixed top-0 w-full z-50 transition-shadow duration-300 ease-in-out">
 <nav class="flex justify-between items-center h-16 px-gutter max-w-container-max mx-auto w-full z-50">
 <a class="font-display text-headline-md font-bold text-primary hover:text-primary-container transition-colors" href="#">Fahreza Adam</a>
 <div class="hidden md:flex items-center space-x-md">
@@ -449,8 +475,8 @@ html.dark {
 </header>
 <main class="pt-24 pb-xl">
 <!-- Hero Section -->
-<section class="max-w-container-max mx-auto px-gutter py-xl md:py-[120px] flex flex-col md:flex-row items-center gap-lg" id="hero">
-<div class="flex-1 space-y-6" data-aos="fade-right" data-aos-duration="1000">
+<section class="w-full max-w-[1440px] mx-auto px-8 md:px-16 lg:px-24 py-xl md:py-[120px] flex flex-col md:flex-row items-center gap-lg" id="hero">
+<div id="hero-left" class="anim-from-left flex-1 space-y-6">
 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high border border-outline-variant/30">
 <span class="w-2 h-2 rounded-full bg-secondary-fixed animate-pulse"></span>
 <span class="font-label-md text-label-md text-on-surface-variant">Available for Opportunities</span>
@@ -471,7 +497,7 @@ html.dark {
                     </a>
 </div>
 </div>
-<div class="flex-1 relative w-full aspect-square max-w-[400px]" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+<div id="hero-right" class="anim-from-right flex-1 relative w-full aspect-square max-w-[400px]">
 <div class="absolute inset-0 bg-primary/5 rounded-full blur-3xl"></div>
 <img alt="Fahreza Adam Workspace" class="relative z-10 w-full h-full object-cover rounded-2xl shadow-sm border border-outline-variant/30 ambient-shadow" src="{{ asset('images/profile.webp') }}" loading="eager" fetchpriority="high" decoding="async" width="400" height="400">
 </div>
@@ -720,9 +746,21 @@ html.dark {
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
 <script>
-        // Smooth page fade-in after all resources loaded
+        // Directional entrance animations after page load
         window.addEventListener('load', () => {
+            // Reveal body (remove anti-flash)
             document.body.classList.add('page-ready');
+
+            // Staggered directional animations
+            const animations = [
+                { id: 'hero-navbar', delay: 0 },
+                { id: 'hero-left',   delay: 150 },
+                { id: 'hero-right',  delay: 300 },
+            ];
+            animations.forEach(({ id, delay }) => {
+                const el = document.getElementById(id);
+                if (el) setTimeout(() => el.classList.add('anim-in'), delay);
+            });
         });
 
         document.addEventListener('DOMContentLoaded', () => {
