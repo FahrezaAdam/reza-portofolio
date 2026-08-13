@@ -13,6 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;family=Inter:wght@400;500&amp;family=Geist:wght@400;500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <!-- Inline theme script: MUST be before any rendering to prevent flash -->
+<style id="no-transition-override">*, *::before, *::after { transition: none !important; }</style>
 <script>
   (function() {
     // Apply dark class ONLY if user explicitly chose dark before.
@@ -26,6 +27,13 @@
         localStorage.setItem('color-theme', 'light');
       }
     }
+    // Re-enable transitions after first paint to avoid flash
+    window.addEventListener('load', function() {
+      requestAnimationFrame(function() {
+        var s = document.getElementById('no-transition-override');
+        if (s) s.remove();
+      });
+    });
   })();
 </script>
 <script id="tailwind-config">
@@ -290,6 +298,10 @@ html.dark {
   --color-on-primary: #022289;
 }
 
+        html {
+            scroll-padding-top: 4rem; /* offset for fixed navbar (h-16 = 64px) */
+        }
+
         *, *::before, *::after {
             transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -375,10 +387,18 @@ html.dark {
             content-visibility: auto;
             contain-intrinsic-size: 1px 600px;
         }
+
+        /* ===== Smooth Page Fade-in ===== */
+        body {
+            opacity: 0;
+        }
+        body.page-ready {
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
     </style>
 </head>
 <body class="bg-background text-on-background font-body-md antialiased selection:bg-primary-fixed selection:text-on-primary-fixed relative">
-
 
 <!-- Moving Particles Live Wallpaper -->
 <div id="tsparticles" class="fixed inset-0 w-full h-full z-0 pointer-events-none overflow-hidden"></div>
@@ -401,7 +421,10 @@ html.dark {
 </button>
 <a class="bg-primary hover:bg-primary-container dark:bg-primary-container dark:hover:brightness-110 text-on-primary dark:text-on-primary-container font-label-md px-4 py-2 rounded-lg transition-transform hover:scale-105 active:scale-95 ml-4 dark:glow-hover inline-flex items-center gap-2" href="{{ asset('CV_Fahreza_Adam_Nuardiansyah.pdf') }}" download><span class="material-symbols-outlined text-[18px]">download</span> Download CV</a>
 </div>
-<div class="flex items-center md:hidden">
+<div class="flex items-center md:hidden gap-1">
+    <a class="bg-primary text-on-primary font-label-md px-3 py-1.5 rounded-lg active:scale-95 transition-transform inline-flex items-center gap-1 text-xs" href="{{ asset('CV_Fahreza_Adam_Nuardiansyah.pdf') }}" download>
+        <span class="material-symbols-outlined text-[16px]">download</span> CV
+    </a>
     <button id="theme-toggle-mobile" class="text-on-surface hover:text-primary p-2 flex items-center" title="Toggle Theme">
         <span id="theme-toggle-dark-icon-mobile" class="hidden material-symbols-outlined text-[20px]">dark_mode</span><span id="theme-toggle-light-icon-mobile" class="hidden material-symbols-outlined text-[20px]">light_mode</span>
     </button>
@@ -419,11 +442,6 @@ html.dark {
         <a class="nav-link-mobile text-on-surface hover:text-primary transition-colors py-2 px-3 rounded-lg hover:bg-surface-container-low dark:hover:bg-surface-container font-medium" href="#skills">Skills</a>
         <a class="nav-link-mobile text-on-surface hover:text-primary transition-colors py-2 px-3 rounded-lg hover:bg-surface-container-low dark:hover:bg-surface-container font-medium" href="#projects">Projects</a>
         <a class="nav-link-mobile text-on-surface hover:text-primary transition-colors py-2 px-3 rounded-lg hover:bg-surface-container-low dark:hover:bg-surface-container font-medium" href="#contact">Contact</a>
-        <div class="pt-2 border-t border-outline-variant/20">
-            <a class="bg-primary hover:bg-primary-container dark:bg-primary-container dark:hover:brightness-110 text-on-primary dark:text-on-primary-container font-label-md px-4 py-2.5 rounded-lg transition-transform active:scale-95 flex items-center justify-center gap-2 dark:glow-hover w-full" href="{{ asset('CV_Fahreza_Adam_Nuardiansyah.pdf') }}" download>
-                <span class="material-symbols-outlined text-[18px]">download</span> Download CV
-            </a>
-        </div>
     </div>
 </div>
 </header>
@@ -698,6 +716,11 @@ html.dark {
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
 <script>
+        // Smooth page fade-in after all resources loaded
+        window.addEventListener('load', () => {
+            document.body.classList.add('page-ready');
+        });
+
         document.addEventListener('DOMContentLoaded', () => {
             // Initialize Animate On Scroll
             if (typeof AOS !== 'undefined') {
@@ -710,17 +733,25 @@ html.dark {
             }
 
             // Simple active state navigation logic for scroll
-            const sections = document.querySelectorAll('section[id]');
+            // Include footer[id] so Contact link can also be highlighted
+            const sections = document.querySelectorAll('section[id], footer[id]');
             const navLinks = document.querySelectorAll('header nav a[href^="#"]:not([href="#"])');
 
-            window.addEventListener('scroll', () => {
+            function updateActiveNav() {
                 let current = '';
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    if (pageYOffset >= (sectionTop - 200)) {
+                const scrollBottom = pageYOffset + window.innerHeight;
+                const docHeight = document.documentElement.scrollHeight;
+                // If near bottom of page, force contact active
+                if (scrollBottom >= docHeight - 50) {
+                    current = 'contact';
+                } else {
+                    sections.forEach(section => {
+                        const sectionTop = section.offsetTop;
+                        if (pageYOffset >= (sectionTop - 200)) {
                         current = section.getAttribute('id');
-                    }
-                });
+                        }
+                    });
+                }
 
                 navLinks.forEach(link => {
                     link.classList.remove('text-primary', 'font-bold', 'border-b-2', 'border-primary');
@@ -730,7 +761,10 @@ html.dark {
                         link.classList.remove('text-on-surface-variant');
                     }
                 });
-            }, { passive: true });
+            }
+
+            window.addEventListener('scroll', updateActiveNav, { passive: true });
+            updateActiveNav(); // run once on load
         });
     
         // Dark Mode Logic
