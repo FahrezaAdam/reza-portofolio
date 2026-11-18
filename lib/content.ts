@@ -17,24 +17,47 @@ export const coursework = [
 
 export const skillGroups = [
   {
-    icon: "code",
     title: "Languages",
-    items: ["JavaScript", "TypeScript", "Dart", "C#", "PHP", "Python"],
+    items: [
+      { name: "JavaScript", icon: "javascript" },
+      { name: "TypeScript", icon: "typescript" },
+      { name: "Dart", icon: "dart" },
+      { name: "C#", icon: "csharp" },
+      { name: "PHP", icon: "php" },
+      { name: "Python", icon: "python" },
+    ],
   },
   {
-    icon: "web",
     title: "Frameworks & Libraries",
-    items: ["Flutter", "Node.js", "Express.js", "Laravel", "React", "Next.js"],
+    items: [
+      { name: "Flutter", icon: "flutter" },
+      { name: "Node.js", icon: "nodedotjs" },
+      { name: "Express.js", icon: "express" },
+      { name: "Laravel", icon: "laravel" },
+      { name: "React", icon: "react" },
+      { name: "Next.js", icon: "nextdotjs" },
+    ],
   },
   {
-    icon: "database",
     title: "Databases & Cloud",
-    items: ["MySQL", "PostgreSQL", "Firebase", "Supabase", "NeonDB"],
+    items: [
+      { name: "MySQL", icon: "mysql" },
+      { name: "PostgreSQL", icon: "postgresql" },
+      { name: "Firebase", icon: "firebase" },
+      { name: "Supabase", icon: "supabase" },
+      { name: "NeonDB", icon: "neon" },
+    ],
   },
   {
-    icon: "build",
     title: "Tools & Others",
-    items: ["Git", "REST API", "MQTT", "ESP32/IoT", "Figma", "Postman"],
+    items: [
+      { name: "Git", icon: "git" },
+      { name: "REST API", icon: "api" },
+      { name: "MQTT", icon: "mqtt" },
+      { name: "ESP32/IoT", icon: "espressif" },
+      { name: "Figma", icon: "figma" },
+      { name: "Postman", icon: "postman" },
+    ],
   },
 ];
 

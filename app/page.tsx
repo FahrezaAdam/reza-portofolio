@@ -2,6 +2,7 @@ import type { CSSProperties } from "react";
 import Image from "next/image";
 import { Navbar } from "@/components/navbar";
 import { RevealInit } from "@/components/reveal";
+import { TechIcon } from "@/components/tech-icon";
 import { coursework, experiences, skillGroups } from "@/lib/content";
 
 const revealDelay = (ms: number) =>
@@ -166,32 +167,30 @@ export default function Home() {
             >
               Tech Stack
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {skillGroups.map((group, index) => (
-                <div
-                  key={group.title}
-                  className="bg-surface border border-outline-variant/30 rounded-xl p-6 hover:border-primary/50 transition-colors"
-                  data-reveal="fade-up"
-                  style={revealDelay((index + 1) * 100)}
-                >
-                  <div className="w-12 h-12 bg-primary-fixed rounded-lg flex items-center justify-center mb-4">
-                    <span className="material-symbols-outlined text-on-primary-fixed">
-                      {group.icon}
-                    </span>
-                  </div>
-                  <h3 className="font-headline-md text-[20px] font-bold text-on-surface mb-4">
+            <div className="mx-auto max-w-4xl space-y-8">
+              {skillGroups.map((group) => (
+                <div key={group.title}>
+                  <h3 className="font-label-md text-label-md mb-4 uppercase tracking-wider text-on-surface-variant">
                     {group.title}
                   </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {group.items.map((item) => (
-                      <span
-                        key={item}
-                        className="bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-md px-2.5 py-1 rounded"
+                  <ul className="grid grid-cols-3 gap-3 sm:grid-cols-4 lg:grid-cols-6">
+                    {group.items.map(({ name, icon }, index) => (
+                      <li
+                        key={name}
+                        className="tech-tile relative flex h-24 flex-col items-center justify-center gap-2 overflow-hidden rounded-2xl border border-outline-variant/40 bg-surface px-2 text-center"
+                        data-reveal="pop"
+                        style={revealDelay(index * 45)}
                       >
-                        {item}
-                      </span>
+                        <TechIcon
+                          icon={icon}
+                          className="tech-icon h-7 w-7 text-on-surface-variant"
+                        />
+                        <span className="text-sm font-medium leading-tight text-on-surface">
+                          {name}
+                        </span>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
               ))}
             </div>
