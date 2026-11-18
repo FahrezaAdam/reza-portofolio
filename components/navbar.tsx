@@ -1,21 +1,31 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CV_URL, navItems } from "@/lib/content";
 import { ThemeToggle } from "./theme-toggle";
 
 export function Navbar() {
   const [active, setActive] = useState("profile");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [ready, setReady] = useState(false);
+  const [pill, setPill] = useState<{ x: number; w: number } | null>(null);
+  const listRef = useRef<HTMLDivElement>(null);
+
+  // Enable the sliding transition only after the first paint.
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setReady(true));
+    return () => cancelAnimationFrame(id);
+  }, []);
 
   useEffect(() => {
     const sections = Array.from(
       document.querySelectorAll<HTMLElement>("section[id], footer[id]"),
-    );
+    ).filter((section) => navItems.some(({ id }) => id === section.id));
 
     function updateActiveNav() {
-      let current = "";
       const y = window.scrollY;
+      let current = "profile";
 
       if (y + window.innerHeight >= document.documentElement.scrollHeight - 50) {
         current = "contact";
@@ -26,6 +36,7 @@ export function Navbar() {
       }
 
       setActive(current);
+      setScrolled(y > 8);
     }
 
     updateActiveNav();
@@ -33,60 +44,111 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", updateActiveNav);
   }, []);
 
+  // Keep the glass pill under the active link, re-measuring on resize/font load.
+  useEffect(() => {
+    let alive = true;
+
+    function measure() {
+      const list = listRef.current;
+      const link = list?.querySelector<HTMLElement>(`[data-nav="${active}"]`);
+      if (!alive) return;
+      if (!list || !link || !link.offsetWidth) {
+        setPill(null);
+        return;
+      }
+      const a = link.getBoundingClientRect();
+      const b = list.getBoundingClientRect();
+      setPill({ x: a.left - b.left, w: a.width });
+    }
+
+    measure();
+    window.addEventListener("resize", measure);
+    document.fonts?.ready.then(measure);
+    return () => {
+      alive = false;
+      window.removeEventListener("resize", measure);
+    };
+  }, [active]);
+
   const desktopLink = (id: string) =>
-    active === id
-      ? "text-primary font-bold border-b-2 border-primary py-1 transition-all duration-300 ease-in-out"
-      : "text-on-surface-variant hover:text-primary transition-colors py-1";
+    `relative z-10 rounded-full px-3.5 py-2 text-sm font-medium transition-colors duration-300 ${
+      active === id
+        ? "text-primary"
+        : "text-on-surface-variant hover:text-primary"
+    }`;
 
   return (
     <header
       id="hero-navbar"
-      className="anim-top bg-surface/80 backdrop-blur-md shadow-sm fixed top-0 w-full z-50 transition-shadow duration-300 ease-in-out"
+      className="anim-top pointer-events-none fixed inset-x-0 top-0 z-50"
     >
-      <nav className="flex justify-between items-center h-16 px-gutter max-w-container-max mx-auto w-full z-50">
+      <nav
+        className={`glass-nav pointer-events-auto mx-auto mt-3 flex h-14 w-[calc(100%-1.5rem)] max-w-5xl items-center justify-between rounded-full pl-4 pr-2 lg:mt-4 lg:h-16 lg:pl-5 ${
+          scrolled ? "is-scrolled" : ""
+        }`}
+      >
         <a
-          className="font-display text-headline-md font-bold text-primary hover:text-primary-container transition-colors"
+          className="font-display text-lg font-bold text-primary transition-colors hover:text-primary-container lg:text-[22px]"
           href="#"
         >
           Fahreza Adam
         </a>
 
-        <div className="hidden md:flex items-center space-x-md">
+        <div ref={listRef} className="relative hidden items-center gap-1 lg:flex">
+          <span
+            aria-hidden
+            className={`nav-indicator ${ready ? "is-ready" : ""}`}
+            style={
+              pill
+                ? {
+                    transform: `translate3d(${pill.x}px, -50%, 0)`,
+                    width: pill.w,
+                  }
+                : { opacity: 0 }
+            }
+          />
           {navItems.map(({ id, label }) => (
-            <a key={id} className={desktopLink(id)} href={`#${id}`}>
+            <a
+              key={id}
+              data-nav={id}
+              aria-current={active === id ? "true" : undefined}
+              className={desktopLink(id)}
+              href={`#${id}`}
+            >
               {label}
             </a>
           ))}
 
-          <ThemeToggle className="text-on-surface-variant hover:text-primary transition-colors py-1 ml-2 flex items-center" />
+          <ThemeToggle className="ml-1 flex h-9 w-9 items-center justify-center rounded-full text-on-surface-variant transition-colors hover:bg-on-surface/5 hover:text-primary" />
 
           <a
-            className="bg-primary hover:bg-primary-container dark:bg-primary-container dark:hover:brightness-110 text-on-primary dark:text-on-primary-container font-label-md px-4 py-2 rounded-lg transition-transform hover:scale-105 active:scale-95 ml-4 inline-flex items-center gap-2"
+            className="ml-2 inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-on-primary transition-transform hover:scale-105 hover:bg-primary-container active:scale-95 dark:bg-primary-container dark:text-on-primary-container dark:hover:brightness-110"
             href={CV_URL}
             download
           >
-            <span className="material-symbols-outlined text-[18px]">download</span>{" "}
+            <span className="material-symbols-outlined text-[18px]">download</span>
             Download CV
           </a>
         </div>
 
-        <div className="flex items-center md:hidden gap-1">
+        <div className="flex items-center gap-1 lg:hidden">
           <a
-            className="bg-primary text-on-primary font-label-md px-3 py-1.5 rounded-lg active:scale-95 transition-transform inline-flex items-center gap-1 text-xs"
+            className="inline-flex items-center gap-1 rounded-full bg-primary px-3 py-1.5 text-xs font-medium text-on-primary transition-transform active:scale-95"
             href={CV_URL}
             download
           >
-            <span className="material-symbols-outlined text-[16px]">download</span>{" "}
+            <span className="material-symbols-outlined text-[16px]">download</span>
             CV
           </a>
-          <ThemeToggle className="text-on-surface hover:text-primary p-2 flex items-center" />
+          <ThemeToggle className="flex h-9 w-9 items-center justify-center rounded-full text-on-surface transition-colors hover:bg-on-surface/5 hover:text-primary" />
           <button
             type="button"
             onClick={() => setMenuOpen((open) => !open)}
-            className="text-on-surface hover:text-primary p-2 flex items-center justify-center focus:outline-none"
+            className="flex h-9 w-9 items-center justify-center rounded-full text-on-surface transition-colors hover:bg-on-surface/5 hover:text-primary focus:outline-none"
             title="Toggle Menu"
             aria-label="Toggle menu"
             aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
           >
             <span className="material-symbols-outlined text-[24px]">
               {menuOpen ? "close" : "more_vert"}
@@ -97,14 +159,14 @@ export function Navbar() {
 
       <div
         id="mobile-menu"
-        className={`${menuOpen ? "" : "hidden"} md:hidden bg-surface/95 backdrop-blur-lg border-t border-outline-variant/20 px-gutter py-4 shadow-lg transition-all duration-300`}
+        className={`${menuOpen ? "" : "hidden"} glass-nav nav-sheet pointer-events-auto mx-auto mt-2 w-[calc(100%-1.5rem)] max-w-5xl rounded-3xl p-2 lg:hidden`}
       >
-        <div className="flex flex-col space-y-3">
+        <div className="flex flex-col">
           {navItems.map(({ id, label }) => (
             <a
               key={id}
               onClick={() => setMenuOpen(false)}
-              className="text-on-surface hover:text-primary transition-colors py-2 px-3 rounded-lg hover:bg-surface-container-low dark:hover:bg-surface-container font-medium"
+              className="rounded-full px-4 py-3 font-medium text-on-surface transition-colors hover:bg-on-surface/5 hover:text-primary"
               href={`#${id}`}
             >
               {label}

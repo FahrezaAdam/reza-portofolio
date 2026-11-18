@@ -13,7 +13,7 @@ export default function Home() {
       <RevealInit />
       <Navbar />
 
-      <main className="pt-24 pb-xl">
+      <main className="pt-24 pb-xl lg:pt-28">
         {/* Hero Section */}
         <section
           className="w-full max-w-[1440px] mx-auto px-8 md:px-16 lg:px-24 py-xl md:py-[120px] flex flex-col md:flex-row items-center gap-lg"
