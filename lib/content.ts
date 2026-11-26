@@ -62,18 +62,47 @@ export const skillGroups = [
   },
 ];
 
-export const experiences = [
+export type ExperienceItem = {
+  title: string;
+  org: string;
+  period?: string;
+  description?: string;
+  highlights?: string[];
+};
+
+export const experiences: ExperienceItem[] = [
   {
-    title: "Technology Division - PPK Ormawa Team BEM FKM",
-    org: "Universitas Jember",
-    description:
-      "Spearheaded the development of a comprehensive flood monitoring website integrated with IoT sensors specifically designed for Nogosari Village. Managed the end-to-end implementation of the technical solution to aid local disaster mitigation efforts.",
+    title: "Full Stack Developer (Internship)",
+    org: "PT Sieto Utama (ERA KITA)",
+    period: "Aug 2026 – Present · Surabaya, East Java (On-site)",
+    highlights: [
+      "Developed and maintained end-to-end web application features, building responsive front-end interfaces and scalable back-end services.",
+      "Designed and integrated RESTful APIs, managed relational database operations, and optimized overall application performance.",
+      "Collaborated with cross-functional teams to translate business requirements into clean, maintainable code and ensure reliable deployments.",
+    ],
   },
   {
-    title: "Teaching Assistant - Software Engineering Laboratory",
+    title: "Teaching Assistant - Software Engineering Laboratory (Part-time)",
     org: "Universitas Jember",
+    period: "Jul 2026 – Present · Jember, East Java (Hybrid)",
+    highlights: [
+      "Facilitated weekly laboratory sessions and provided hands-on technical mentoring for undergraduate students across core Software Engineering courses.",
+      "Evaluated practicum assignments, software project deliverables, and lab reports, offering structured feedback to reinforce engineering best practices.",
+      "Collaborated with fellow teaching assistants to standardize grading rubrics, coordinate lab schedules, and streamline final report verification.",
+    ],
+  },
+  {
+    title: "Technology Division – PPK ORMAWA BEM FKM UNEJ (Contract)",
+    org: "Universitas Jember",
+    period: "Feb 2026 – Present · Jember, East Java (Hybrid)",
     description:
-      "Guided students during Software Engineering practicum sessions, explaining materials and resolving technical issues. Assisted in grading assignments, preparing teaching modules, and providing consultation on practicum tasks to ensure smooth execution.",
+      "Served in the Technology Division for the PPK ORMAWA (Program Penguatan Kapasitas Organisasi Kemahasiswaan) initiative by BEM FKM Universitas Jember, developing digital solutions for the Desa Tangguh Bencana (Destana) program in Desa Nogosari.",
+    highlights: [
+      "Designed intuitive user interfaces in Figma and built the responsive web platform to support village-level disaster preparedness.",
+      "Integrated the web platform with an IoT-based flood monitoring system to track water conditions and support real-time early warning visibility.",
+      "Developed a web-based data management feature to record and organize information on flood-affected residents and areas for faster emergency response.",
+      "Collaborated with cross-functional student teams and local village stakeholders to align technical features with community disaster mitigation workflows.",
+    ],
   },
 ];
 

@@ -67,16 +67,36 @@ export function ExperienceSection() {
                 <span className="experience-marker" />
               </span>
               <div className="experience-copy border-b border-outline-variant/60 pb-8 last:border-b-0">
-                <span className="font-code-sm text-xs text-on-surface-variant">
-                  0{index + 1}
-                </span>
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <span className="font-code-sm text-xs text-on-surface-variant">
+                    0{index + 1}
+                  </span>
+                  {experience.period && (
+                    <span className="font-code-sm text-xs text-on-surface-variant">
+                      {experience.period}
+                    </span>
+                  )}
+                </div>
                 <h3 className="mt-1 font-display text-xl font-bold leading-snug tracking-tight text-on-surface md:text-2xl">
                   {experience.title}
                 </h3>
                 <p className="mb-3 mt-1.5 font-label-md text-xs font-semibold uppercase tracking-[0.14em] text-on-surface-variant">
                   {experience.org}
                 </p>
-                <p>{experience.description}</p>
+                {experience.description && <p>{experience.description}</p>}
+                {experience.highlights && (
+                  <ul className="mt-2 space-y-2 text-on-surface-variant leading-relaxed">
+                    {experience.highlights.map((item) => (
+                      <li key={item} className="flex gap-2.5">
+                        <span
+                          aria-hidden
+                          className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-on-surface-variant"
+                        />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
             </motion.article>
           ))}
