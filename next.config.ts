@@ -1,6 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  images: {
+    localPatterns: [
+      { pathname: "/images/**", search: "" },
+      { pathname: "/images/profile.webp", search: "?v=2" },
+    ],
+  },
   async headers() {
     return [
       {

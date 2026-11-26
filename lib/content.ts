@@ -1,4 +1,5 @@
 export const navItems = [
+  { id: "hero", label: "Home" },
   { id: "profile", label: "Profile" },
   { id: "education", label: "Education" },
   { id: "skills", label: "Skills" },
