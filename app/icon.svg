@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="16" fill="#111111" />
+  <rect
+    x="1.5"
+    y="1.5"
+    width="61"
+    height="61"
+    rx="14.5"
+    stroke="#ffffff"
+    stroke-opacity="0.14"
+  />
+  <!-- Custom geometric F + A monogram -->
+  <path
+    d="M17 45V19H33M17 31.5H29"
+    stroke="#F4F4F3"
+    stroke-width="3.6"
+    stroke-linecap="square"
+    stroke-linejoin="miter"
+  />
+  <path
+    d="M31.5 45L40 19L48.5 45M34.5 36.5H45.5"
+    stroke="#F4F4F3"
+    stroke-width="3.6"
+    stroke-linecap="square"
+    stroke-linejoin="miter"
+  />
+</svg>
