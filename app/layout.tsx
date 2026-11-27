@@ -29,6 +29,9 @@ export const metadata: Metadata = {
   title: "Fahreza Adam Nuardiansyah | Portfolio",
   description:
     "Portfolio of Fahreza Adam Nuardiansyah, Information Technology Student & Full Stack Developer at Universitas Jember.",
+  verification: {
+    google: "nwtmBHj73lOjDQiUUustCbwkUG9Cw8EhRadJ7UuZMAM",
+  },
   openGraph: {
     title: "Fahreza Adam Nuardiansyah | Portfolio",
     description:
