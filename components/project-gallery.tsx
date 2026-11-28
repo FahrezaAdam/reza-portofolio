@@ -67,7 +67,6 @@ const projects: Project[] = [
     description:
       "Optimalisasi Sistem Distribusi Pakan dan Monitoring Kesehatan Ternak Ayam Berbasis Digital. Developed a comprehensive mobile dashboard to streamline automated feed distribution and provide real-time digital monitoring for poultry livestock health, including temperature and humidity tracking.",
     sizes: "(max-width: 767px) 86vw, (max-width: 1240px) 50vw, 620px",
-    contain: true,
   },
 ];
 
